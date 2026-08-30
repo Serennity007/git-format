@@ -13,7 +13,7 @@
 
 **conventional commits에 따라 git 커밋 메시지를 포맷하세요. API 키가 필요 없습니다.**
 
-[![npm](https://img.shields.io/npm/v/git-format.svg)](https://www.npmjs.com/package/git-format)
+[![npm](https://img.shields.io/npm/v/@liangzhengtao/git-format.svg)](https://www.npmjs.com/package/@liangzhengtao/git-format)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
@@ -27,10 +27,10 @@
 git add .
 
 # Auto-format and commit
-npx git-format
+npx @liangzhengtao/git-format
 
 # Or just preview (dry run)
-npx git-format --dry-run
+npx @liangzhengtao/git-format --dry-run
 ```
 
 ## 기능
@@ -46,25 +46,25 @@ npx git-format --dry-run
 ```bash
 # Stage a new feature
 git add src/auth/login.ts
-npx git-format
+npx @liangzhengtao/git-format
 # → feat(auth): add new feature in src/auth/login.ts
 
 # Stage a bug fix
 git add src/api/users.ts
 git commit -m "fix bug"
-npx git-format
+npx @liangzhengtao/git-format
 # → fix(api): fix issue in src/api/users.ts
 
 # Stage documentation
 git add README.md
-npx git-format
+npx @liangzhengtao/git-format
 # → docs: update documentation
 ```
 
 ## 옵션
 
 ```
-npx git-format [options]
+npx @liangzhengtao/git-format [options]
 
 Options:
   -d, --dry-run    Show message without committing
@@ -95,7 +95,7 @@ Options:
 - name: Auto-format commits
   run: |
     git add .
-    npx git-format
+    npx @liangzhengtao/git-format
     git push
 ```
 

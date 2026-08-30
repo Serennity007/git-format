@@ -13,7 +13,7 @@
 
 **Formatea los mensajes de commit según Conventional Commits. Sin necesidad de clave API.**
 
-[![npm](https://img.shields.io/npm/v/git-format.svg)](https://www.npmjs.com/package/git-format)
+[![npm](https://img.shields.io/npm/v/@liangzhengtao/git-format.svg)](https://www.npmjs.com/package/@liangzhengtao/git-format)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
@@ -27,10 +27,10 @@
 git add .
 
 # Formateo y commit automáticos
-npx git-format
+npx @liangzhengtao/git-format
 
 # Solo previsualizar (dry run)
-npx git-format --dry-run
+npx @liangzhengtao/git-format --dry-run
 ```
 
 ## Cómo funciona
@@ -46,25 +46,25 @@ npx git-format --dry-run
 ```bash
 # Preparar una nueva funcionalidad
 git add src/auth/login.ts
-npx git-format
+npx @liangzhengtao/git-format
 # → feat(auth): add new feature in src/auth/login.ts
 
 # Preparar una corrección de bug
 git add src/api/users.ts
 git commit -m "fix bug"
-npx git-format
+npx @liangzhengtao/git-format
 # → fix(api): fix issue in src/api/users.ts
 
 # Preparar documentación
 git add README.md
-npx git-format
+npx @liangzhengtao/git-format
 # → docs: update documentation
 ```
 
 ## Opciones
 
 ```
-npx git-format [options]
+npx @liangzhengtao/git-format [options]
 
 Options:
   -d, --dry-run    Mostrar mensaje sin hacer commit
@@ -95,7 +95,7 @@ Options:
 - name: Auto-format commits
   run: |
     git add .
-    npx git-format
+    npx @liangzhengtao/git-format
     git push
 ```
 

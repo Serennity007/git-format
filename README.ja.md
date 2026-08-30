@@ -13,7 +13,7 @@
 
 **Conventional Commits 準拠の git コミットメッセージを自動生成。API キーは不要です。**
 
-[![npm](https://img.shields.io/npm/v/git-format.svg)](https://www.npmjs.com/package/git-format)
+[![npm](https://img.shields.io/npm/v/@liangzhengtao/git-format.svg)](https://www.npmjs.com/package/@liangzhengtao/git-format)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
@@ -27,10 +27,10 @@
 git add .
 
 # 自動フォーマット＆コミット
-npx git-format
+npx @liangzhengtao/git-format
 
 # プレビューのみ（dry run）
-npx git-format --dry-run
+npx @liangzhengtao/git-format --dry-run
 ```
 
 ## 仕組み
@@ -46,25 +46,25 @@ npx git-format --dry-run
 ```bash
 # 新機能をステージング
 git add src/auth/login.ts
-npx git-format
+npx @liangzhengtao/git-format
 # → feat(auth): add new feature in src/auth/login.ts
 
 # バグ修正をステージング
 git add src/api/users.ts
 git commit -m "fix bug"
-npx git-format
+npx @liangzhengtao/git-format
 # → fix(api): fix issue in src/api/users.ts
 
 # ドキュメントをステージング
 git add README.md
-npx git-format
+npx @liangzhengtao/git-format
 # → docs: update documentation
 ```
 
 ## オプション
 
 ```
-npx git-format [options]
+npx @liangzhengtao/git-format [options]
 
 Options:
   -d, --dry-run    コミットせずにメッセージを表示
@@ -95,7 +95,7 @@ Options:
 - name: Auto-format commits
   run: |
     git add .
-    npx git-format
+    npx @liangzhengtao/git-format
     git push
 ```
 

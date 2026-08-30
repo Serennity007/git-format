@@ -1,5 +1,5 @@
 {
-  "name": "git-format",
+  "name": "@liangzhengtao/git-format",
   "version": "1.0.0",
   "description": "Format git commit messages according to conventional commits",
   "main": "src/index.js",
@@ -17,13 +17,17 @@
     "format",
     "cli"
   ],
-  "author": "liangzhengtao",
+  "author": "Zhengtao Liang (Serennity007)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/liangzhengtao/git-format.git"
+    "url": "git+https://github.com/Serennity007/git-format.git"
   },
   "engines": {
     "node": ">=16.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Serennity007/git-format/issues"
+  },
+  "homepage": "https://github.com/Serennity007/git-format#readme"
 }

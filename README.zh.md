@@ -6,7 +6,7 @@
 
 **格式化 git commit message，遵循 conventional commits 规范。无需 API key。**
 
-[![npm](https://img.shields.io/npm/v/git-format.svg)](https://www.npmjs.com/package/git-format)
+[![npm](https://img.shields.io/npm/v/@liangzhengtao/git-format.svg)](https://www.npmjs.com/package/@liangzhengtao/git-format)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
@@ -20,10 +20,10 @@
 git add .
 
 # 自动格式化并提交
-npx git-format
+npx @liangzhengtao/git-format
 
 # 或者只预览（dry run）
-npx git-format --dry-run
+npx @liangzhengtao/git-format --dry-run
 ```
 
 ## 功能
@@ -39,25 +39,25 @@ npx git-format --dry-run
 ```bash
 # 暂存新功能
 git add src/auth/login.ts
-npx git-format
+npx @liangzhengtao/git-format
 # → feat(auth): add new feature in src/auth/login.ts
 
 # 暂存 bug 修复
 git add src/api/users.ts
 git commit -m "fix bug"
-npx git-format
+npx @liangzhengtao/git-format
 # → fix(api): fix issue in src/api/users.ts
 
 # 暂存文档
 git add README.md
-npx git-format
+npx @liangzhengtao/git-format
 # → docs: update documentation
 ```
 
 ## 选项
 
 ```
-npx git-format [options]
+npx @liangzhengtao/git-format [options]
 
 Options:
   -d, --dry-run    显示消息但不提交
@@ -88,7 +88,7 @@ Options:
 - name: Auto-format commits
   run: |
     git add .
-    npx git-format
+    npx @liangzhengtao/git-format
     git push
 ```
 

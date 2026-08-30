@@ -13,7 +13,7 @@ Thank you for your interest in contributing!
 ## Development
 
 ```bash
-git clone https://github.com/liangzhengtao/git-format.git
+git clone https://github.com/Serennity007/git-format.git
 cd git-format
 npm install
 npm test

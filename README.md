@@ -10,14 +10,14 @@
 
 # 🔖 git-format | Git 格式化 | Gitフォーマット | Format Git | Formato Git | تنسيق Git
 
-### `npx git-format` — Conventional commits, zero effort.
+### `npx @liangzhengtao/git-format` — Conventional commits, zero effort.
 
 **Format git commit messages according to conventional commits. No API key needed.**
 
-[![npm version](https://img.shields.io/npm/v/git-format.svg?style=for-the-badge&logo=npm&color=00d4ff)](https://www.npmjs.com/package/git-format)
-[![Downloads](https://img.shields.io/npm/dm/git-format.svg?style=for-the-badge&logo=npm&color=00d4ff)](https://www.npmjs.com/package/git-format)
+[![npm version](https://img.shields.io/npm/v/@liangzhengtao/git-format.svg?style=for-the-badge&logo=npm&color=00d4ff)](https://www.npmjs.com/package/@liangzhengtao/git-format)
+[![Downloads](https://img.shields.io/npm/dm/@liangzhengtao/git-format.svg?style=for-the-badge&logo=npm&color=00d4ff)](https://www.npmjs.com/package/@liangzhengtao/git-format)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&color=6e40c9)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/liangzhengtao/git-format?style=for-the-badge&logo=github&color=00d4ff)](https://github.com/liangzhengtao/git-format)
+[![GitHub Stars](https://img.shields.io/github/stars/Serennity007/git-format?style=for-the-badge&logo=github&color=00d4ff)](https://github.com/Serennity007/git-format)
 
 </div>
 
@@ -43,10 +43,10 @@
 git add .
 
 # Auto-format and commit
-npx git-format
+npx @liangzhengtao/git-format
 
 # Or just preview (dry run)
-npx git-format --dry-run
+npx @liangzhengtao/git-format --dry-run
 ```
 
 ## 🔍 What It Does
@@ -62,25 +62,25 @@ npx git-format --dry-run
 ```bash
 # Stage a new feature
 git add src/auth/login.ts
-npx git-format
+npx @liangzhengtao/git-format
 # → feat(auth): add new feature in src/auth/login.ts
 
 # Stage a bug fix
 git add src/api/users.ts
 git commit -m "fix bug"
-npx git-format
+npx @liangzhengtao/git-format
 # → fix(api): fix issue in src/api/users.ts
 
 # Stage documentation
 git add README.md
-npx git-format
+npx @liangzhengtao/git-format
 # → docs: update documentation
 ```
 
 ## ⚙️ Options
 
 ```
-npx git-format [options]
+npx @liangzhengtao/git-format [options]
 
 Options:
   -d, --dry-run   Show message without committing
@@ -111,7 +111,7 @@ Options:
 - name: Auto-format commits
   run: |
     git add .
-    npx git-format
+    npx @liangzhengtao/git-format
     git push
 ```
 
@@ -121,10 +121,10 @@ Options:
 
 | Project | Description |
 |---------|-------------|
-| [**agent-trace**](https://github.com/liangzhengtao/agent-trace) | Visualize and debug AI agent execution traces |
-| [**ai-commit**](https://github.com/liangzhengtao/ai-commit) | `npx ai-commit` — AI writes your commit messages |
-| [**vibe-check**](https://github.com/liangzhengtao/vibe-check) | `npx vibe-check` — Is your project AI-ready? |
-| [**awesome-ai-rules**](https://github.com/liangzhengtao/awesome-ai-rules) | 20 production AI coding rules |
+| [**agent-trace**](https://github.com/Serennity007/agent-trace) | Visualize and debug AI agent execution traces |
+| [**ai-commit**](https://github.com/Serennity007/ai-commit) | `npx @liangzhengtao/commit-ai` — AI writes your commit messages |
+| [**vibe-check**](https://github.com/Serennity007/vibe-check) | `npx @liangzhengtao/vibe-check` — Is your project AI-ready? |
+| [**awesome-ai-rules**](https://github.com/Serennity007/awesome-ai-rules) | 20 production AI coding rules |
 
 ---
 
