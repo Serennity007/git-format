@@ -79,6 +79,8 @@ npx @liangzhengtao/git-format
 
 ## ⚙️ Options
 
+For machine-readable previews, use `git-format --dry-run --json`. stdout contains only JSON, including `files: []` for an empty index. `--json` alone retains normal commit behavior. Help/version never commit; unknown arguments fail before changing the repository. [Maintenance changes](CHANGELOG.md) · [Project navigator](https://github.com/Serennity007/repo-catalog).
+
 ```
 npx @liangzhengtao/git-format [options]
 

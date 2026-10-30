@@ -8,7 +8,7 @@
     "gf": "./bin/cli.js"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js && node test/cli.integration.js"
   },
   "keywords": [
     "git",

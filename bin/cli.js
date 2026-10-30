@@ -2,7 +2,7 @@
 
 'use strict';
 
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 let chalk;
 try { chalk = require('chalk'); } catch { chalk = { green: s => s, red: s => s, yellow: s => s, gray: s => s, bold: s => s, cyan: s => s }; }
 
@@ -20,20 +20,12 @@ const TYPES = {
 };
 
 function getStagedFiles() {
-  try {
-    const output = execSync('git diff --cached --name-only', { encoding: 'utf-8' });
-    return output.trim().split('\n').filter(Boolean);
-  } catch {
-    return [];
-  }
+  const output = execFileSync('git', ['diff', '--cached', '--name-only', '-z'], { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'pipe'] });
+  return output.split('\0').filter(Boolean);
 }
 
 function getStagedDiff() {
-  try {
-    return execSync('git diff --cached', { encoding: 'utf-8' });
-  } catch {
-    return '';
-  }
+  return execFileSync('git', ['diff', '--cached', '--no-ext-diff', '--no-textconv'], { encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
 }
 
 function detectType(files, diff) {
@@ -110,17 +102,37 @@ function formatOutput(message, files, type) {
 
 // Main
 const args = process.argv.slice(2);
+if (args.includes('--help') || args.includes('-h')) {
+  console.log('Usage: git-format [type] [options]\n\n  -d, --dry-run  Preview without committing\n  -j, --json     Output JSON\n  -q, --quiet    Suppress human-readable output\n  -h, --help     Show help\n  -V, --version  Show version');
+  process.exit(0);
+}
+if (args.includes('--version') || args.includes('-V')) {
+  console.log(require('../package.json').version);
+  process.exit(0);
+}
+const allowed = new Set(['--dry-run', '-d', '--json', '-j', '--quiet', '-q', ...Object.keys(TYPES)]);
+if (args.some(arg => !allowed.has(arg))) {
+  console.error('Unknown argument. Use --help to see supported options.');
+  process.exit(1);
+}
 const isDryRun = args.includes('--dry-run') || args.includes('-d');
 const isJson = args.includes('--json') || args.includes('-j');
 const isQuiet = args.includes('--quiet') || args.includes('-q');
 
-const files = getStagedFiles();
+let files, diff;
+try {
+  files = getStagedFiles();
+  if (files.length) diff = getStagedDiff();
+} catch {
+  console.error('Could not read staged changes. Check Git and the repository.');
+  process.exit(1);
+}
 if (files.length === 0) {
-  if (!isQuiet) console.log(chalk.yellow('  No staged changes found.'));
+  if (isJson) console.log(JSON.stringify({ type: null, scope: null, message: null, files: [] }));
+  else if (!isQuiet) console.log(chalk.yellow('  No staged changes found.'));
   process.exit(0);
 }
 
-const diff = getStagedDiff();
 const type = args.find(a => TYPES[a]) || detectType(files, diff);
 const scope = detectScope(files);
 const message = generateMessage(type, scope, files);
@@ -132,13 +144,14 @@ if (isJson) {
 }
 
 if (isDryRun) {
-  if (!isQuiet) console.log(chalk.gray('  (dry run — not committed)'));
+  if (!isQuiet && !isJson) console.log(chalk.gray('  (dry run — not committed)'));
   process.exit(0);
 }
 
 // Auto-commit
 try {
-  execSync(`git commit -m "${message}"`, { stdio: 'inherit' });
+  const output = execFileSync('git', ['commit', '-m', message], { encoding: 'utf8', stdio: isJson ? ['inherit', 'pipe', 'pipe'] : 'inherit' });
+  if (isJson && output) process.stderr.write(output);
 } catch (err) {
   console.error(chalk.red('  Commit failed'));
   process.exit(1);

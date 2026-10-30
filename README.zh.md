@@ -56,6 +56,8 @@ npx @liangzhengtao/git-format
 
 ## 选项
 
+机器读取预览时使用 `git-format --dry-run --json`；空暂存区返回 `files: []`，stdout 只输出 JSON。单独 `--json` 仍按正常流程提交。帮助与版本命令不提交，未知参数会在操作前报错。[维护记录](CHANGELOG.md) · [项目总导航](https://github.com/Serennity007/repo-catalog/blob/main/README.zh-CN.md)。
+
 ```
 npx @liangzhengtao/git-format [options]
 
